@@ -12,12 +12,24 @@ function jump() {
     }, 300);
 }
 
+
 document.addEventListener("keydown", function () {
     jump();
 });
 
+
+document.addEventListener("click", function () {
+    jump();
+});
+
+
+document.addEventListener("touchstart", function () {
+    jump();
+});
+
+
 const checkDead = setInterval(function () {
-    const endSound = new Audio('end.mp3')
+    const endSound = new Audio('end.mp3');
     let characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
     let blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
 
@@ -29,8 +41,7 @@ const checkDead = setInterval(function () {
         block.style.animation = "block 1.5s infinite linear";
     } else {
         counter++;
-        endSound.pause() 
+        endSound.pause();
         document.getElementById("scoreSpan").innerHTML = Math.floor(counter / 100);
     }
 }, 10);
- 
